@@ -1,0 +1,22 @@
+<view>
+  <image src='../../img/2.jpg' class='background_img'></image>
+  <view class='body'>
+    <view class='body-content'>
+      <dial lottery="{{lottery}}"></dial>
+    </view>
+    <view class='body-footer'>
+      <image src='../../img/4.jpg' class='btn-begin' bindtap='startRollTap'></image>
+      <image src='../../img/5.jpg' class='btn-up' bindtap='edit'></image>
+    </view>
+  </view>
+  <view class='alert' animation="{{back}}" wx:if="{{isEdit}}">
+    <view class='edit'>
+      <view class='edit-footer'>
+      </view>
+      <image src='../../img/1.jpg' class='edit-btn' bindtap='edit'></image>
+    </view>
+  </view>
+  <view class='alert' animation="{{back}}" wx:if="{{isMsg}}">
+
+  </view>
+</view>

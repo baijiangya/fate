@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "dial": "../components/dial"
+  }
+}

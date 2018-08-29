@@ -1,0 +1,59 @@
+.background_img{
+  position: fixed;
+  top: 0rpx;
+  width: 100vw;
+  height: 100vh;
+}
+.body{
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: red; */
+}
+.body-content{
+  /* background-color: yellow; */
+  height: 80vh;
+  width: 100vw;
+  
+}
+.body-footer{
+  position: relative;
+}
+.btn-begin{
+  height: 120rpx;
+  width: 400rpx;
+  position: absolute;
+  left: calc((100vw - 400rpx) / 2)
+}
+.btn-up{
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  left: 35rpx;
+}
+.alert{
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.edit{
+  background-color: #fff;
+  margin: 35rpx;
+  height: calc(100vh - 70rpx);
+  width: calc(100vw - 70rpx);
+  border-radius: 20rpx;
+}
+.edit-btn{
+  width:120rpx;
+  height:120rpx;
+  position: absolute;
+  bottom: 90rpx;
+  left: calc((100% - 120rpx) / 2)
+}
+
+
+
