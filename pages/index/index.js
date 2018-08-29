@@ -4,19 +4,26 @@ const app = getApp()
 let canRoll = true, //加控制，防止用户点击两次
   num = 1, //用在动画上，让用户在第二次点击的时候可以接着上次转动的角度继续转
   lotteryArrLen = 0, //放奖品的数组的长度
-  lottery = ['奖品1', '奖品2', '奖品3']; //放奖品
-
-
+  lottery = [{ name: '包子' }, { name: '混沌' }, { name: '拌饭' }, { name: '黄焖鸡' }, { name: '西红柿牛肉羹' }, { name: '米线' }, { name: '炒饭' }, { name:'肯德基'}]//放奖品
 Page({
   data: {
     back: {}, //弹框遮罩动画
     isEdit: false, //是否显示编辑内容
     isMsg: false, //是否显示提示信息
-    lottery: ['包子', '混沌', '拌饭', '黄焖鸡', '西红柿牛肉羹', '米线', '炒饭', '肯德基']
+    lottery: []
   },
   //页面加载数据页面
   onLoad: function() {
-
+    if(wx.getStorageSync('lottery')){
+      this.setData({
+        lottery: wx.getStorageSync('lottery')
+      })
+    }else{
+      
+      this.setData({
+        lottery: lottery
+      })
+    }
   },
   //页面显示
   onShow: function() {
