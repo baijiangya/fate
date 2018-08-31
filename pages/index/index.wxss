@@ -19,6 +19,7 @@
 }
 .body-footer{
   position: relative;
+  top: -150rpx;
 }
 .btn-begin{
   height: 120rpx;
@@ -54,161 +55,194 @@
   bottom: 90rpx;
   left: calc((100% - 120rpx) / 2)
 }
+.edit-content{
+  padding: 25rpx;
+}
+.edit-select{
+  width: 70%;
+  display: flex;
+  justify-content: space-around
+}
+.edit-select-item{
+  width: 50rpx;
+  height: 65rpx;
+  margin: auto 0px;
+}
+.edit-input{
+  /* background-color: red; */
+  padding-left: 20rpx;
+  height: 40rpx;
+  margin: auto 20rpx;
+  border-bottom: 1px solid #EF8D34;
+}
+.edit-item{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 23rpx;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rebeccapurple; */
+  margin: 20rpx auto
+}
 
 
+.body-content{
+  padding-top: 102rpx;
+}
+.desk{
+  width: 716rpx;
+  height: 800rpx;
+  position: absolute;
+  top: 102rpx;
+  left: calc((100vw - 716rpx) / 2);
+}
+.main{
+  position: relative;
+  top: 180rpx;
+}
 
+/* 转盘 */
+.canvas-container ul,
+.canvas-container li{
+  margin: 0 ;
+  padding: 0;
+  list-style: none;
+}
 
-
-
-.container {
+.canvas-container{
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;  
+  border-radius: 50%;
+  box-shadow: 0 0 20px #999;
+  /*border: 2px solid #E44025;*/
+  /* box-shadow: 0 2px 3px #333,
+              0 0 2px #000; */
+  
+}
+.canvas-content{
+  position: absolute;
+  left: 0;
+  top: 0;
   z-index: 1;
-  padding-top: 220rpx;
-  padding-bottom: 20rpx;
-  box-sizing: border-box;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: inherit;
+  background-clip: padding-box;
+  background-color: #fff;
+}
+.canvas-element{
+  position: relative;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+.canvas-list{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 9999;
+}
+.canvas-item{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
+  color: #e4370e;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255,255,255,.6);
+  white-space: nowrap;/*一行显示*/
+  overflow: hidden;/*超出部分隐藏*/
+  text-overflow: ellipsis;/*用...代替超出部分*/
 }
-
-.plate-wrap-box {
+.canvas-item-text{
   position: relative;
-  z-index: 999;
-  width: 500rpx;
-  height: 500rpx;
-  border-radius: 50%;
-  margin: 0 auto 60rpx;
+  display: block;
+  padding-top: 20px;
+  /* width: 50px; */
+  font-size: 20rpx;
+  margin: 0 auto;
+  text-align: center; 
+  -webkit-transform-origin: 50% 100px; 
+  transform-origin: 50% 100px;
 }
 
-.plate-border {
-  position: relative;
-  z-index: 9;
-  width: 500rpx;
-  height: 500rpx;
-  background-color: #ffbe04;
-  border-radius: 50%;
-}
-
-.plate-wrap {
+/* 分隔线 */
+.canvas-line{
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9;
-  width: 440rpx;
-  height: 440rpx;
-  border: 1rpx solid #e88605;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 99;
+}
+.canvas-litem{
+  position: absolute;
+   left: 100px;
+   top: 0;
+   width: 1px;
+   height: 100px;
+   background-color: rgba(228,55,14,.4);
+   overflow: hidden; 
+   -webkit-transform-origin: 50% 100px; 
+   transform-origin: 50% 100px;
+}
+
+
+.canvas-btn{
+  /* position: absolute;
+  left: 80px;
+  top: 80px;
+  z-index: 400;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  overflow: hidden;
-  margin: auto;
-}
-
-.plate-light {
-  z-index: 1;
-  width: 500rpx;
-  height: 500rpx;
-  border: none;
-}
-
-.plate-box {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  width: 0;
-  height: 0;
-  font-size: 24rpx;
-}
-
-.bulb {
-  position: absolute;
-  width: 16rpx;
-  height: 16rpx;
-  left: 50%;
-  top: -242rpx;
-  transform: translate(-50%, 0);
-  border-radius: 50%;
-  background-color: #fff0c7;
-  filter: blur(0.5rpx);
-}
-
-.text-box {
-  position: absolute;
+  color: #F4E9CC;
+  background-color: #E44025;
+  line-height: 40px;
   text-align: center;
-  display: inline-block;
-  width: 15rpx;
-  word-break: break-all;
-  top: -200rpx;
-  transform: translate(-100%, 0);
-  font-size: 28rpx;
-}
-
-.plate-btn-wrap {
+  font-size: 10px;
+  
+  
+  text-decoration: none;
+  display: block; */
   position: absolute;
-  z-index: 10;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 110rpx;
-  height: 110rpx;
+  z-index: 300;
+  left: 135rpx;
+  top: 135rpx;
+  width: 130rpx;
+  height: 130rpx;
   border-radius: 50%;
+  text-shadow: 0 -1px 1px rgba(0,0,0,.6);
+  /* box-shadow: 0 2px 2px rgba(0,0,0,.6); */
 }
 
-.plate-btn-wrap::before {
-  content: '';
+.zhen{
   position: absolute;
-  z-index: 9;
-  left: calc(50% - 10rpx);
-  top: -40rpx;
-  transform: translate(-50%, 0);
+  display: block;
+  content: ' ';
+  left: 90px;
+  top: 55px;
+  z-index: 300;
   width: 0;
   height: 0;
-  border-bottom: 80rpx solid #e7211b;
-  border-left: 20rpx solid transparent;
+  overflow: hidden;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #E44025; 
 }
-
-.plate-btn-wrap::after {
-  content: '';
-  position: absolute;
-  z-index: 9;
-  left: calc(50% + 10rpx);
-  top: -40rpx;
-  transform: translate(-50%, 0);
-  width: 0;
-  height: 0;
-  border-bottom: 80rpx solid #ca1518;
-  border-right: 20rpx solid transparent;
-}
-
-.plate-btn-box {
-  position: relative;
-  z-index: 11;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #e62d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.plate-inner-btn {
-  position: relative;
-  z-index: 999;
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-  background-color: #ca1518;
-  font-size: 28rpx;
-  color: #fdcf03;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lottery-plate-shadow {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 50rpx;
-  border-radius: 50%;
-  background-color: #d50a0c;
-  filter: blur(4rpx);
-  bottom: -35rpx;
+/* .canvas-btn.disabled{
+    pointer-events: none;
+    background: #B07A7B;
+    color: #ccc;
+} */
+.canvas-btn.disabled::after{
+  /* border-bottom-color: #B07A7B; */
 }

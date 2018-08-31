@@ -14,6 +14,21 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const fomatArray = array => {
+  let colors = ['#f85858', '#21a2fd', '#a3d001', '#ffda4d']
+  let arr = array;
+  let u = 0;
+  for(let i in arr){
+    if(u==4){
+      u = 0;
+    }
+    arr[i].color = colors[u]
+    u++;
+  }
+  return arr;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  fomatArray: fomatArray
 }

@@ -1,46 +1,45 @@
 <view>
-  <image src='../../img/2.jpg' class='background_img'></image>
+  <image src='../../img/a.jpg' class='background_img'></image>
   <view class='body'>
     <view class='body-content'>
-      <!-- <dial lottery="{{lottery}}" id="componentId" bindtap="startRollTap"></dial> -->
+      <image src='../../img/f.png' class='desk'></image>
+      <view class="main">
+        <view class="canvas-container">
+          <view animation="{{animationData}}" class="canvas-content">
+            <canvas style="width: 300px; height: 300px;" class="canvas-element" canvas-id="lotteryCanvas"></canvas>
 
-      <view class="container">
-        <view class="plate-wrap-box">
-          <view class="plate-border" animation="{{ aniData }}">
-            <!-- 转盘以及文字 -->
-            <view class="plate-wrap">
-              <view class="plate-box" wx:for="{{ lottery }}" wx:key="" style="top:-{{ (lottery.length - 6)<=2?(36+4*(lottery.length - 6)):50 }}rpx;transform-origin: 50% {{ (lottery.length - 6) <=2?(256+4*(lottery.length - 6)):270 }}rpx;border-top: {{ (lottery.length - 6) <=2?(256+4*(lottery.length - 6)):270 }}rpx solid #{{ index % 2==0?'ffeebe':'ffbb04' }};transform:translate(-50%,0) rotate({{ 360 / lottery.length * ( index )}}deg);border-left: {{ 440 / lottery.length * 2 }}rpx solid transparent;border-right: {{ 440 / lottery.length * 2 }}rpx solid transparent;">
-                <text class="text-box" style="color:#{{ index % 2==0?'ffbb04':'ffeebe' }}">{{ item.name }}</text>
-              </view>
+            <view class="canvas-line">
+              <view class="canvas-litem" wx:for="{{awardsList}}" wx:key="unique" style="-webkit-transform: rotate({{item.lineTurn}});transform: rotate({{item.lineTurn}})"></view>
             </view>
-            <!-- 边框的小灯泡 -->
-            <view class="plate-wrap plate-light">
-              <view class="plate-box" wx:for="{{ lottery }}" wx:key="" style="top:-{{ (lottery.length - 6)<=2?(44+4*(lottery.length - 6)):60 }}rpx; transform-origin: 50% {{ (lottery.length - 6) <=2?(294+4*(lottery.length - 6)):310 }}rpx;border-top: {{ (lottery.length - 6) <=2?(294+4*(lottery.length - 6)):310 }}rpx solid transparent;transform:translate(-50%,0) rotate({{ 360 / lottery.length * ( index )}}deg);border-left: {{ 500 / lottery.length * 2 }}rpx solid transparent;border-right: {{ 500 / lottery.length * 2 }}rpx solid transparent;">
-                <view class="bulb"></view>
+
+            <view class="canvas-list">
+              <view class="canvas-item" wx:for="{{awardsList}}" wx:key="unique">
+                <view class="canvas-item-text" style="-webkit-transform: rotate({{item.turn}});transform: rotate({{item.turn}})">{{item.award}}</view>
               </view>
             </view>
           </view>
-          <view class="plate-btn-wrap" bindtap="onTap">
-            <view class="plate-btn-box">
-              <view class="plate-inner-btn">
-                <text>吃</text>
-              </view>
-            </view>
-          </view>
-          <!-- <view class="lottery-plate-shadow"></view> -->
+          <!-- <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}"></view> -->
+          <view class='zhen'></view>
+          <image src='../../img/b.png' bindtap="getLottery"  class='canvas-btn {{btnDisabled}}'></image>
         </view>
       </view>
-
-
     </view>
     <view class='body-footer'>
-      <image src='../../img/4.jpg' class='btn-begin' bindtap='startRollTap'></image>
-      <image src='../../img/5.jpg' class='btn-up' bindtap='edit'></image>
+      <image src='../../img/4.jpg' class='btn-begin' bindtap="getLottery"></image>
+      <image src='../../img/d.png' class='btn-up' bindtap='edit'></image>
     </view>
   </view>
   <view class='alert' animation="{{back}}" wx:if="{{isEdit}}">
     <view class='edit'>
-      <view class='edit-footer'>
+      <view class='edit-content'>
+        <view wx:for="{{lottery}}" class='edit-item' wx:key="item">
+          <input type='text' value='{{item.name}}' class='edit-input'></input>
+          <view class='edit-select'>
+            <image src='../../img/1_1.png' class='edit-select-item'></image>
+            <image src='../../img/2_1.png' class='edit-select-item'></image>
+            <image src='../../img/3_1.png' class='edit-select-item'></image>
+          </view>
+        </view>
       </view>
       <image src='../../img/1.jpg' class='edit-btn' bindtap='edit'></image>
     </view>
