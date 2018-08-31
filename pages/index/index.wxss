@@ -23,15 +23,15 @@
 }
 .btn-begin{
   height: 120rpx;
-  width: 400rpx;
+  width: 350rpx;
   position: absolute;
-  left: calc((100vw - 400rpx) / 2)
+  left: calc((100vw - 350rpx) / 2)
 }
 .btn-up{
   height: 120rpx;
-  width: 120rpx;
+  width: 145rpx;
   position: absolute;
-  left: 35rpx;
+  left: calc((100vw - 350rpx) / 2 + 350rpx + 20rpx)
 }
 .alert{
   position: fixed;

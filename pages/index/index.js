@@ -12,7 +12,7 @@ let awards = [{
   }, {
     name: '黄焖鸡'
   }, {
-    name: '西红柿牛肉羹'
+    name: '麻辣烫'
   }, {
     name: '米线'
   }, {
