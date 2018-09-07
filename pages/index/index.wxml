@@ -3,24 +3,24 @@
   <view class='body'>
     <view class='body-content'>
       <image src='../../img/f.png' class='desk'></image>
-      <view class="main">
+      <view class="main"  bindtap="getLottery" >
         <view class="canvas-container">
           <view animation="{{animationData}}" class="canvas-content">
             <canvas style="width: 300px; height: 300px;" class="canvas-element" canvas-id="lotteryCanvas"></canvas>
 
             <view class="canvas-line">
-              <view class="canvas-litem" wx:for="{{awardsList}}" wx:key="unique" style="-webkit-transform: rotate({{item.lineTurn}});transform: rotate({{item.lineTurn}})"></view>
+              <view class="canvas-litem" wx:for="{{menu}}" wx:key="unique" style="-webkit-transform: rotate({{item.lineTurn}});transform: rotate({{item.lineTurn}})"></view>
             </view>
 
             <view class="canvas-list">
-              <view class="canvas-item" wx:for="{{awardsList}}" wx:key="unique">
+              <view class="canvas-item" wx:for="{{menu}}" wx:key="unique">
                 <view class="canvas-item-text" style="-webkit-transform: rotate({{item.turn}});transform: rotate({{item.turn}})">{{item.award}}</view>
               </view>
             </view>
           </view>
           <!-- <view bindtap="getLottery" class="canvas-btn {{btnDisabled}}"></view> -->
           <view class='zhen'></view>
-          <image src='../../img/b.png' bindtap="getLottery"  class='canvas-btn {{btnDisabled}}'></image>
+          <image src='../../img/b.png' class='canvas-btn {{btnDisabled}}'></image>
         </view>
       </view>
     </view>
@@ -32,12 +32,13 @@
   <view class='alert' animation="{{back}}" wx:if="{{isEdit}}">
     <view class='edit'>
       <view class='edit-content'>
-        <view wx:for="{{lottery}}" class='edit-item' wx:key="item">
+        <view wx:for="{{awards}}" class='edit-item' wx:key="item">
           <input type='text' value='{{item.name}}' class='edit-input'></input>
           <view class='edit-select'>
             <image src='../../img/1_1.png' class='edit-select-item'></image>
             <image src='../../img/2_1.png' class='edit-select-item'></image>
             <image src='../../img/3_1.png' class='edit-select-item'></image>
+            <image src='../../img/7.png' class='edit-select-item-del' bindtap='del'></image>
           </view>
         </view>
       </view>

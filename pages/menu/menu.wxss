@@ -1,0 +1,80 @@
+.tab-nav {
+  width: 80rpx;
+  height: calc(100%);
+  background: sandybrown;
+  font-size: 32rpx;
+  position: fixed;
+  color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.tab-item {
+  margin: 30rpx auto;
+  margin-left: 30rpx;
+  width: 55rpx;
+  padding-top: 20rpx;
+  padding-bottom:20rpx; 
+  text-align: center;
+  background-color: #9f9f9f;
+  border-top-left-radius: 15rpx;
+  border-bottom-left-radius: 15rpx; 
+}
+
+.tab-item.active {
+  color: sandybrown;
+  background-color: #fff;
+}
+
+.tab-content {
+  position: fixed;
+  left: 80rpx;
+  top: 0px;
+  width: calc(100vw - 80rpx);
+  height: 100vh;
+  z-index: 1;
+  /* box-shadow: -5 0 10rpx #9f9f9f */
+}
+
+
+.menu{
+  text-align: center;
+  margin: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.addMenu{
+  width: 60rpx;
+  background-color: rebeccapurple
+}
+.menu-edit{
+  width: 50%;
+  border-bottom: 2px solid salmon  
+}
+.menu-nav{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.edit-icon{
+  height: 65rpx;
+  width: 50rpx;
+}
+.edit-icon:last-of-type{
+  height: 35rpx;
+  width: 30rpx;
+  margin: 15rpx 10rpx;
+}
+.title{
+  margin: 30rpx;
+  display: flex;
+  justify-content: space-between
+} 

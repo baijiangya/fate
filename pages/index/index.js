@@ -3,23 +3,7 @@
 const app = getApp()
 const util = require('../../utils/util.js')
 
-let awards = [{
-    name: '包子'
-  }, {
-    name: '混沌'
-  }, {
-    name: '拌饭'
-  }, {
-    name: '黄焖鸡'
-  }, {
-    name: '麻辣烫'
-  }, {
-    name: '米线'
-  }, {
-    name: '炒饭'
-  }, {
-    name: '肯德基'
-  }] //放奖品
+let menu = [] //放奖品
 
 
 Page({
@@ -30,33 +14,27 @@ Page({
     lottery: [],
     awardsList: {},
     animationData: {},
-    btnDisabled: ''
+    btnDisabled: '',
+    menu: []
   },
   //页面加载数据页面
   onLoad: function() {
-    if (wx.getStorageSync('lottery')) {
-      this.setData({
-        lottery: wx.getStorageSync('lottery')
-      })
-    } else {
-      this.setData({
-        lottery: util.fomatArray(lottery)
-      })
-    }
+
   },
   //页面显示
   onShow: function() {
-    //创建转盘旋转动画
-    let aniData = wx.createAnimation({ //创建动画对象
-      duration: 4000,
-      timingFunction: 'ease'
-    });
-    this.aniData = aniData; //将动画对象赋值给this的aniData属性
-    lotteryArrLen = lottery.length;
+    this.onReady();
+    // //创建转盘旋转动画
+    // let aniData = wx.createAnimation({ //创建动画对象
+    //   duration: 4000,
+    //   timingFunction: 'ease'
+    // });
+    // this.aniData = aniData; //将动画对象赋值给this的aniData属性
+    // lotteryArrLen = lottery.length;
   },
 
   //开始
-  getLottery: function () {
+  getLottery: function() {
     var that = this
     var awardIndex = Math.random() * 8 >>> 0;
 
@@ -87,10 +65,10 @@ Page({
     // wx.setStorageSync('winAwards', winAwards)
 
     // 中奖提示
-    setTimeout(function () {
+    setTimeout(function() {
       wx.showModal({
-        title: '恭喜',
-        content: '获得' + (awardsConfig.awards[awardIndex].name),
+        title: awardsConfig.awards[awardIndex].name,
+        content: '恭喜',
         showCancel: false
       })
       if (awardsConfig.chance) {
@@ -107,7 +85,7 @@ Page({
     // getAwardsConfig
     app.awardsConfig = {
       chance: true,
-      awards: awards
+      awards: app.menu
     }
 
     // wx.setStorageSync('awardsConfig', JSON.stringify(awardsConfig))
@@ -161,7 +139,7 @@ Page({
       });
     }
     that.setData({
-      awardsList: html
+      menu: html
     });
 
     // 对 canvas 支持度太差，换种方式实现
@@ -173,14 +151,22 @@ Page({
 
   //编辑
   edit: function() {
-    if (this.data.isEdit) {
-      this.setData({
-        isEdit: false
-      })
-    } else {
-      this.setData({
-        isEdit: true
-      })
-    }
+    // if (this.data.isEdit) {
+    //   this.setData({
+    //     isEdit: false
+    //   })
+    // } else {
+    //   this.setData({
+    //     isEdit: true
+    //   })
+    // }
+    wx.navigateTo({
+      url: '../menu/menu',
+    })
   },
+  //删除菜单
+  del: function(e) {
+    console.log(e)
+  },
+  
 })

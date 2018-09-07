@@ -1,0 +1,25 @@
+<view>
+  <scroll-view scroll-Y="true" class="tab-nav" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">默认</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">菜单一</view>
+  </scroll-view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" >
+    <swiper-item wx:for="{{[0,1]}}">
+      <scroll-view class="scoll-h">
+        <view class='title'>
+          <input type='text' value='默认'></input>
+          <checkbox></checkbox>
+        </view>
+        <view wx:for="{{menu}}" wx:key="item" class='menu'>
+          <input type='text' value='{{item.name}}' class='menu-edit'></input>
+          <view class='menu-nav'>
+            <image src='../../img/1_1.png' class='edit-icon'></image>
+            <image src='../../img/2_1.png' class='edit-icon'></image>
+            <image src='../../img/3_1.png' class='edit-icon'></image>
+            <image src='../../img/7.png' class='edit-icon' bindtap='del'></image>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item> 
+  </swiper>
+</view>
